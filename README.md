@@ -12,7 +12,7 @@ Here are the screenshots of the rice.
 ## Desktop
 <p align="center">
   <img width=1000
-       src=/Screenshots/Screenshot1.png
+       src=/Screenshots/desktop2_img.png
        >
 </p>
 
@@ -21,7 +21,7 @@ Here are the screenshots of the rice.
 ## BSPWM
 <p align="center">
   <img width=1000
-       src=/Screenshots/Screenshot2.png
+       src=/Screenshots/desktop_img.png
        >
 </p>
 
