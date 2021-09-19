@@ -1,0 +1,6 @@
+configuration {
+	font:	"Ubuntu Mono 13";
+	theme: ".config/rofi/gruvbox-dark-soft.rasi";
+	show-icons:	true;
+	icon-theme:	"Papirus";
+}

@@ -1,0 +1,158 @@
+;==========================================================
+;
+;
+;	███╗   ██╗ ██████╗ ███████╗██╗   ██╗
+;	████╗  ██║██╔═══██╗╚══███╔╝╚██╗ ██╔╝
+;	██╔██╗ ██║██║   ██║  ███╔╝  ╚████╔╝ 
+;	██║╚██╗██║██║   ██║ ███╔╝    ╚██╔╝  
+;	██║ ╚████║╚██████╔╝███████╗   ██║   
+;	╚═╝  ╚═══╝ ╚═════╝ ╚══════╝   ╚═╝
+;
+;
+;   To learn more about how to configure Polybar
+;   go to https://github.com/polybar/polybar
+;
+;   Polybar config by NOZY.
+;	
+;	https://github.com/geeknozy/npolybar
+;	https://geeknozy.github.io/
+;	
+;==========================================================
+
+[colors]
+background = #282828
+background-alt =#d79921
+foreground =  #ffffff
+foreground-alt = #a89984
+primary = #d79921
+secondary = #ffffff
+alert = #bd2c40
+
+[bar/polybar-1]
+width = 100%
+height = 20
+radius = 0.1
+fixed-center = center
+
+background = ${colors.background}
+foreground = ${colors.foreground}
+
+line-size = 2
+line-color = #00f2ff
+
+border-size = 0
+border-color = #02c5e0
+
+padding-left = 1
+padding-right = 1
+
+module-margin-left = 1
+module-margin-right = 1
+
+font-0 = "tamsyn:size=10:weight=Bold;2"
+
+modules-left = bspwm xwindow
+modules-right = wired-network memory pulseaudio cpu date
+
+separator = |
+separator-foreground = #fe8019
+tray-position = none
+tray-padding = 3
+tray-background = #ffffff
+cursor-click = pointer
+eursor-scroll = ns-resize
+
+[module/xwindow]
+type = internal/xwindow
+label = %title:0:30:...%
+format = <label>
+format-foreground = #ebdbb2
+
+[module/bspwm]
+type = internal/bspwm
+
+label-focused = %index%
+label-focused-background = ${colors.background-alt}
+label-focused-underline= ${colors.primary}
+label-focused-padding = 1
+
+label-occupied = %index%
+label-occupied-padding = 1
+
+label-urgent = %index%!
+label-urgent-background = ${colors.alert}
+label-urgent-padding = 1
+
+label-empty = %index%
+label-empty-foreground = ${colors.foreground-alt}
+label-empty-padding = 1
+
+; Separator in between workspaces
+label-separator = |
+label-separator-foreground = #fe8019
+label-separator-padding = 0
+
+[module/wired-network]
+type = internal/network
+interface = enp2s0
+interval = 3.0
+udspeed-minwidth = 5
+accumulate-stats = true
+unknown-as-up = true
+format-connected-prefix = "[NET]:"
+format-connected-background = #8ec07c
+format-connected-foreground = #000000
+format-connected = <label-connected>
+label-connected = %downspeed% ▼
+;There's ▲: &#9650; and ▼: &#9660;
+label-disconnected = not connected
+
+[module/memory]
+type = internal/memory
+interval = 3
+format-memory = <label-memory>
+format-prefix = "[RAM]:"
+format-background = #d6c4a1
+format-foreground = #000000
+label=  %gb_used%/%gb_free%
+
+[module/pulseaudio]
+type = internal/pulseaudio
+sink = alsa_output.pci-0000_12_00.3.analog-stereo
+format-volume = <label-volume> 
+label-volume = %percentage%%
+label-muted = !? muted
+click-right = pavucontrol
+format-volume-prefix = "[VOL]:"
+format-volume-background = #d3869b
+format-volume-foreground = #000000
+label-muted-foreground = #ffffff
+
+[module/cpu]
+type = internal/cpu
+interval = 2
+format-prefix = "[CPU]:"
+format-background = #d65d0e
+format-foreground = #000000
+label = %percentage:2% %
+
+[module/date]
+type = internal/date
+interval = 1
+date = %d/%m/%Y |
+date-alt = " %d/%m/%Y |"
+time = %H:%M
+time-alt = %H:%M:%S
+format-prefix = "[DATE]:"
+format-background = #56B6C2
+format-foreground = #000000
+label = %date% %time%
+
+[settings]
+screenchange-reload = true
+
+[global/wm]
+margin-top = 5
+margin-bottom = 5
+
+; vim:ft=dosini
