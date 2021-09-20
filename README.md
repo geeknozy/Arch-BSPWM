@@ -21,7 +21,7 @@ Here are the screenshots of the rice.
 ## BSPWM
 <p align="center">
   <img width=1000
-       src=/Screenshots/desktop2_img2.png
+       src=/Screenshots/desktop_img2.png
        >
 </p>
 
